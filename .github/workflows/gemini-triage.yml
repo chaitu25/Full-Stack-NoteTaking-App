@@ -84,7 +84,7 @@ jobs:
               },
               "tools": {
                 "core": [
-                  "run_shell_command(echo)"
+                  "run_shell_command(export)"
                 ]
               }
             }
