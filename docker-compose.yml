@@ -21,7 +21,8 @@ services:
       - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
       - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
     volumes:
-      - ~/notedb_data:/data/db
+    volumes:
+      - mongodb_data:/data/db
     
   proxy:
     container_name: proxy
