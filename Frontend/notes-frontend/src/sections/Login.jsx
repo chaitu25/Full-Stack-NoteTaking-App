@@ -66,11 +66,13 @@ const Login = () => {
       <Text fontSize={"4xl"}>LOGIN</Text>
         <Input width={"350px"} mt="5%" name="email" onChange={handleChange} placeholder="type your email" />
         <Input width={"350px"} type="password" mt="5%" name="password" onChange={handleChange} placeholder="type your Password" />
+        <Box mt={"2%"} >
+          <NavLink to={"/forgot-password"}><Text fontSize={"large"} color="Highlight">Forgot Password?</Text></NavLink>
+        </Box>
         <Button size={"lg"} colorScheme="green" onClick={handleClick} display={"block"} m={"auto"} mt="3%">LOGIN</Button>
 
         <Box mt={"4%"} >
         <NavLink to={"/signup"}><Text fontSize={"large"} color="Highlight">SignUp</Text></NavLink>
-        <NavLink to={"/forgot-password"}><Text fontSize={"large"} color="Highlight">Forgot Password?</Text></NavLink>
         </Box>
       </Glass>
     </motion.div>
