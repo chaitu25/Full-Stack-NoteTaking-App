@@ -1,7 +1,11 @@
 # Local Netlify folder
 .netlify
-# gemini-cli settings
+# Files to Ignore for gemini Cli
 .gemini/
-
+GEMINI.md
 # GitHub App credentials
 gha-creds-*.json
+
+# Files to ignore for Opencode Cli
+opencode.json
+AGENTS.md
