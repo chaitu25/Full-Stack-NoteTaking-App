@@ -9,3 +9,4 @@ gha-creds-*.json
 # Files to ignore for Opencode Cli
 opencode.json
 AGENTS.md
+.prompts/
