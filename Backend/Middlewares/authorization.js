@@ -13,6 +13,16 @@ const authorization=async(req,res,next)=>{
 
 }
 
+const forgotPassword = async (req, res) => {
+    const { email } = req.body;
+    if (!email) {
+        return res.status(400).json({ msg: "Please enter your email" });
+    }
+    // For now, we will just return a success message.
+    return res.status(200).json({ msg: "Password reset link sent to your email" });
+}
+
 module.exports={
-    authorization
+    authorization,
+    forgotPassword
 }

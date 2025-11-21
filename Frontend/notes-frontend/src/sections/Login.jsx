@@ -70,6 +70,7 @@ const Login = () => {
 
         <Box mt={"4%"} >
         <NavLink to={"/signup"}><Text fontSize={"large"} color="Highlight">SignUp</Text></NavLink>
+        <NavLink to={"/forgot-password"}><Text fontSize={"large"} color="Highlight">Forgot Password?</Text></NavLink>
         </Box>
       </Glass>
     </motion.div>

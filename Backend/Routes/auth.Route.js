@@ -4,13 +4,15 @@ const jwt=require("jsonwebtoken")
 const bcrypt=require("bcrypt")
 require("dotenv").config()
 const {authentication}=require("../Middlewares/authentication")
-const {authorization}=require("../Middlewares/authorization")
+const {authorization, forgotPassword}=require("../Middlewares/authorization")
 
 const authController=Router()
 
 authController.get("/",(req,res)=>{
     res.json({msg:"Continue towards authentication"})
 })
+
+authController.post("/forgot-password", forgotPassword);
 
 authController.get("/user/:Id",authentication,async(req,res)=>{
 
