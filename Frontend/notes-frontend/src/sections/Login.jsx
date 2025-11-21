@@ -1,4 +1,4 @@
-import { Box, Button, Input, Text, useToast } from '@chakra-ui/react'
+import { Box, Button, Input, Link, Text, useToast } from '@chakra-ui/react'
 import React from 'react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
@@ -66,6 +66,7 @@ const Login = () => {
       <Text fontSize={"4xl"}>LOGIN</Text>
         <Input width={"350px"} mt="5%" name="email" onChange={handleChange} placeholder="type your email" />
         <Input width={"350px"} type="password" mt="5%" name="password" onChange={handleChange} placeholder="type your Password" />
+        <Link onClick={() => Navigate('/reset-password')} mt="2%" display="block" textAlign="center" color="blue.500">Forgot password?</Link>
         <Button size={"lg"} colorScheme="green" onClick={handleClick} display={"block"} m={"auto"} mt="3%">LOGIN</Button>
 
         <Box mt={"4%"} >

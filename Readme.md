@@ -41,6 +41,8 @@
 
   ![Screenshot (147)](https://user-images.githubusercontent.com/101392591/196043479-39502424-bf84-42d6-8bd7-f760772bdc8c.png)
 
+  The login page includes a "Forgot password?" link below the password field to initiate password reset.
+
 
 - *Notes Page*
 

@@ -5,6 +5,7 @@ import EditNote from './EditNote'
 import HomePage from './HomePage'
 import Login from './Login'
 import NotesApp from './NotesApp'
+import RequestPasswordReset from './RequestPasswordReset'
 import Signup from './Signup'
 import {AnimatePresence} from "framer-motion"
 import PageNotFound from './PageNotFound'
@@ -19,6 +20,7 @@ export const AllRoutes = () => {
         <Route path='/' element={<HomePage/>} />
         <Route path='/signup' element={<Signup/>} />
         <Route path='/login' element={<Login/>} />
+        <Route path='/reset-password' element={<RequestPasswordReset/>} />
         <Route path='/notes' element={<ReqAuth><NotesApp/></ReqAuth>} />
         <Route path='/update/:id' element={<ReqAuth><EditNote/></ReqAuth>}/>
         <Route path='*' element={<PageNotFound/>} />
