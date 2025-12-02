@@ -1,4 +1,4 @@
-import { Box, Button } from '@chakra-ui/react'
+import { Box, Button, Heading, VStack } from '@chakra-ui/react'
 import React from 'react'
 import {motion} from "framer-motion"
 import { useNavigate } from 'react-router-dom'
@@ -17,11 +17,15 @@ const HomePage = () => {
      height={"100vh"}
      backgroundImage={"https://user-images.githubusercontent.com/101392591/193494962-789f5443-5e7e-429b-aecd-b612ec937c6b.jpg"}
      backgroundSize="cover"
-     overflowY="hidden">
-        <Button size={"lg"} colorScheme="blackAlpha" mt={"5%"} color="blackAlpha.800" pt={"10px"} pb="20px" fontSize="4xl">The Notes App</Button>
-      <Button size={"lg"} colorScheme="blackAlpha" position={"absolute"} bottom="40%"
-        left={"20%"}
-       onClick={()=>navigate("/notes")}>Get Started</Button>  
+     overflowY="hidden"
+     display="flex"
+     justifyContent="center"
+     alignItems="center"
+     >
+        <VStack spacing={8}>
+          <Heading as="h1" size="4xl" color="white">The Notes App</Heading>
+          <Button size={"lg"} colorScheme="teal" onClick={()=>navigate("/notes")}>Get Started</Button>
+        </VStack>
     </Box>
     </motion.div>
   )
