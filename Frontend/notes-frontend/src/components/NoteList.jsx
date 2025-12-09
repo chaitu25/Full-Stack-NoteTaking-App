@@ -23,7 +23,7 @@ const NoteList = () => {
           {
             notesData.length!==0?notesData.map((elem)=>(
               <SingleNote  key={elem._id} id={elem._id}  heading={elem.heading}
-               description={elem.description} tag={elem.tag} />
+description={elem.description} tag={elem.tag} createdAt={elem.createdAt} updatedAt={elem.updatedAt} />
             )) :<Text width={"100%"} fontSize={"2xl"} ml="100%"  >Looks like you have not addded any notes yet!</Text>
           }
             
