@@ -70,7 +70,9 @@ authController.post("/signup",async(req,res)=>{
 
 })
 
-authController.post("/login",async(req,res)=>{
+const {rateLimiter}=require("../Middlewares/rateLimiter")
+
+authController.post("/login",rateLimiter,async(req,res)=>{
 
     const{email,password}=req.body
     const user=await UserModel.findOne({email})
