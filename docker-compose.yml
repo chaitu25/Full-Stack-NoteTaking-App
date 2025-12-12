@@ -11,6 +11,7 @@ services:
       - SECRET_KEY=${SECRET_KEY}
     depends_on:
       - mongodb
+      - redis
   
   mongodb:
     container_name: mongodb
@@ -22,6 +23,14 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
     volumes:
       - mongodb_data:/data/db
+
+  redis:
+    container_name: redis
+    image: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
     
   proxy:
     container_name: proxy
@@ -34,3 +43,4 @@ services:
 
 volumes:
   mongodb_data:
+  redis_data:

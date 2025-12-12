@@ -4,6 +4,7 @@ const {authController}=require("./Routes/auth.Route")
 const {notesController}=require("./Routes/notes.Route")
 require("dotenv").config()
 const cors=require("cors")
+const redisClient = require("./Config/redis")
 
 const app=express()
 
@@ -21,6 +22,7 @@ app.get("/",(req,res)=>{
 app.listen(PORT,async()=>{
     try{
         await connection
+        await redisClient.connect()
         console.log(`Listening on port ${PORT}`)
     }catch(err){
         console.log("connection Failed")
