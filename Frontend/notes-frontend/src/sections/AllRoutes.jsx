@@ -16,7 +16,7 @@ export const AllRoutes = () => {
   return (
     <AnimatePresence>
       <Routes location={location} key={location.pathname} >
-        <Route path='/' element={<HomePage/>} />
+        <Route path='/' element={<div style="display: flex; justify-content: center"><HomePage /></div>} />
         <Route path='/signup' element={<Signup/>} />
         <Route path='/login' element={<Login/>} />
         <Route path='/notes' element={<ReqAuth><NotesApp/></ReqAuth>} />
