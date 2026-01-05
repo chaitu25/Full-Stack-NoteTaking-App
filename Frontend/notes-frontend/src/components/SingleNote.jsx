@@ -47,9 +47,17 @@ export const SingleNote = ({heading,description,tag,id}) => {
               <Box  borderTopRightRadius="10px" borderTopLeftRadius={"10px"}  >
                 <Text fontSize={"xl"} color={"black"}>{heading}</Text>
               </Box> 
-              <Box  >
-                <Text fontSize={"md"} color={"white"}>{description}</Text>
-              </Box>  
+              <Box>
+                <Text fontSize={"md"} color={"white"}>
+                  {description.length > 50 ? (
+                    <>
+                      {description.substring(0, 50)}... <Link to={`/update/${id}`} style={{ color: 'teal' }}>Read More</Link>
+                    </>
+                  ) : (
+                    description
+                  )}
+                </Text>
+              </Box>
               <Box  >
                 <Badge mr={"25%"}  fontSize={"lg"} color={"orange.700"}>{tag}</Badge>
               </Box> 
