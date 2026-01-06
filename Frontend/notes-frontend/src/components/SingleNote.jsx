@@ -12,6 +12,13 @@ export const SingleNote = ({heading,description,tag,id}) => {
     
     const toast=useToast()
 
+    const truncateDescription = (text, maxLength) => {
+        if (text.length > maxLength) {
+            return text.substring(0, maxLength) + "...";
+        }
+        return text;
+    };
+
   const handleDelete=()=>{
 
     
@@ -41,14 +48,21 @@ export const SingleNote = ({heading,description,tag,id}) => {
   // border={"1px solid cyan"}
   return (
     <Box  className='glass' height={"auto"} width="220px" borderRadius="12px">
-        <Link to={`/update/${id}`}>
+        <Link to={`/view/${id}`}>
           <Flex  direction={"column"}  borderRadius={"10px"}
                 justifyContent="center" gap={"2%"}>
               <Box  borderTopRightRadius="10px" borderTopLeftRadius={"10px"}  >
                 <Text fontSize={"xl"} color={"black"}>{heading}</Text>
               </Box> 
               <Box  >
-                <Text fontSize={"md"} color={"white"}>{description}</Text>
+                <Text fontSize={"md"} color={"white"}>
+                    {truncateDescription(description, 100)}
+                    {description.length > 100 && (
+                        <Text as="span" color="blue.300" cursor="pointer" ml="2px">
+                            Read More
+                        </Text>
+                    )}
+                </Text>
               </Box>  
               <Box  >
                 <Badge mr={"25%"}  fontSize={"lg"} color={"orange.700"}>{tag}</Badge>

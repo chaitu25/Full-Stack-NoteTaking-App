@@ -21,6 +21,7 @@ export const AllRoutes = () => {
         <Route path='/login' element={<Login/>} />
         <Route path='/notes' element={<ReqAuth><NotesApp/></ReqAuth>} />
         <Route path='/update/:id' element={<ReqAuth><EditNote/></ReqAuth>}/>
+        <Route path='/view/:id' element={<ReqAuth><EditNote/></ReqAuth>}/>
         <Route path='*' element={<PageNotFound/>} />
       </Routes>
     </AnimatePresence>    
