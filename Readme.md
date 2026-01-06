@@ -66,6 +66,8 @@
 
 This project was built using React, Chakra UI, CSS, JavaScript for Frontend and Express and MongoDB for backend. To run it in your local system you should follow these guidelines.
 
+**New Feature:** Truncated note descriptions with clickable cards for full view and edit.
+
 ### Setup
 
 
