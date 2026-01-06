@@ -41,22 +41,21 @@ export const SingleNote = ({heading,description,tag,id}) => {
 
   // border={"1px solid cyan"}
   return (
-    <Link to={`/update/${id}`}>
-      <Box  className='glass' height={"auto"} width="220px" borderRadius="12px">
-            <Flex  direction={"column"}  borderRadius={"10px"}
-                  justifyContent="center" gap={"2%"}>
-                <Box  borderTopRightRadius="10px" borderTopLeftRadius={"10px"}  >
-                  <Text fontSize={"xl"} color={"black"}>{heading}</Text>
-                </Box> 
-                <Box  >
-                  <Text fontSize={"md"} color={"white"}>{truncateDescription(description, 100)}</Text>
-                </Box>  
-                <Box  >
-                  <Badge mr={"25%"}  fontSize={"lg"} color={"orange.700"}>{tag}</Badge>
-                </Box> 
-            </Flex>
-          <Button size={"sm"} colorScheme={"pink"} mt="3%" mb={"1%"} onClick={handleDelete}>DELETE</Button>
-      </Box>
-    </Link>
+    <Box  className='glass' height={"auto"} width="220px" borderRadius="12px">
+          <Flex  direction={"column"}  borderRadius={"10px"}
+                justifyContent="center" gap={"2%"}>
+              <Box  borderTopRightRadius="10px" borderTopLeftRadius={"10px"}  >
+                <Link to={`/update/${id}`}><Text fontSize={"xl"} color={"black"}>{heading}</Text></Link>
+              </Box> 
+              <Box  >
+                <Text fontSize={"md"} color={"black"}>{truncateDescription(description, 100)} 
+                <Link to={`/notes/${id}`} style={{color:"blue", textDecoration:"underline"}}>Read More</Link></Text>
+              </Box>  
+              <Box  >
+                <Badge mr={"25%"}  fontSize={"lg"} color={"orange.700"}>{tag}</Badge>
+              </Box> 
+          </Flex>
+        <Button size={"sm"} colorScheme={"pink"} mt="3%" mb={"1%"} onClick={handleDelete}>DELETE</Button>
+    </Box>
   )
 }
