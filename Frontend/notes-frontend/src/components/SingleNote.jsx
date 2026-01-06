@@ -38,23 +38,35 @@ export const SingleNote = ({heading,description,tag,id}) => {
 
   }
 
+  const truncateText = (text, limit) => {
+    if (text.length <= limit) {
+      return text;
+    }
+    return `${text.slice(0, limit)}...`;
+  };
+
+  const truncatedDescription = truncateText(description, 100); // Truncate to 100 characters
+
   // border={"1px solid cyan"}
   return (
     <Box  className='glass' height={"auto"} width="220px" borderRadius="12px">
-        <Link to={`/update/${id}`}>
           <Flex  direction={"column"}  borderRadius={"10px"}
                 justifyContent="center" gap={"2%"}>
               <Box  borderTopRightRadius="10px" borderTopLeftRadius={"10px"}  >
                 <Text fontSize={"xl"} color={"black"}>{heading}</Text>
               </Box> 
               <Box  >
-                <Text fontSize={"md"} color={"white"}>{description}</Text>
+                <Text fontSize={"md"} color={"white"}>{truncatedDescription}</Text>
+                {description.length > 100 && (
+                  <Link to={`/update/${id}`}>
+                    <Text color={"blue.300"} cursor="pointer">Read More</Text>
+                  </Link>
+                )}
               </Box>  
               <Box  >
                 <Badge mr={"25%"}  fontSize={"lg"} color={"orange.700"}>{tag}</Badge>
               </Box> 
           </Flex>
-        </Link>
         <Button size={"sm"} colorScheme={"pink"} mt="3%" mb={"1%"} onClick={handleDelete}>DELETE</Button>
     </Box>
   )
