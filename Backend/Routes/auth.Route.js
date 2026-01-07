@@ -5,6 +5,7 @@ const bcrypt=require("bcrypt")
 require("dotenv").config()
 const {authentication}=require("../Middlewares/authentication")
 const {authorization}=require("../Middlewares/authorization")
+const loginRateLimiter = require("../Middlewares/rateLimit");
 
 const authController=Router()
 
@@ -70,7 +71,7 @@ authController.post("/signup",async(req,res)=>{
 
 })
 
-authController.post("/login",async(req,res)=>{
+authController.post("/login", loginRateLimiter, async(req,res)=>{
 
     const{email,password}=req.body
     const user=await UserModel.findOne({email})
