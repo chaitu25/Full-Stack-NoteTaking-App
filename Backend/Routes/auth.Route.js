@@ -5,7 +5,7 @@ const bcrypt=require("bcrypt")
 require("dotenv").config()
 const {authentication}=require("../Middlewares/authentication")
 const {authorization}=require("../Middlewares/authorization")
-const { rateLimiterMiddleware, limiterConsecutiveFailsByUsernameAndIP, getUsernameIPkey } = require("../Middlewares/rateLimiter")
+const { rateLimiterMiddleware } = require("../Middlewares/rateLimiter")
 
 const authController=Router()
 
@@ -84,8 +84,6 @@ authController.post("/login", rateLimiterMiddleware, async(req,res)=>{
             return res.status(500).json({msg:"Something went wrong. Please try again later."})
         }
         if(result){
-            const usernameIPkey = getUsernameIPkey(email, req.ip);
-            await limiterConsecutiveFailsByUsernameAndIP.delete(usernameIPkey);
             const token=jwt.sign({userId:user._id,name:user.name},process.env.SECRET_KEY)
             return res.status(200).json({message:"login succesful",token:token})
         }else{
